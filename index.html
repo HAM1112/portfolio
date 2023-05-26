@@ -28,7 +28,7 @@
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
   
-  
+  <script src="./assets/js/validation.js" defer></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 
@@ -540,33 +540,34 @@
           </div>
 
           <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
-            <form action="" class="php-email-form" id="submit-form">
+            <form action="/" class="php-email-form" id="submit-form" method="GET">
               <div class="row">
                 <div class="form-group col-md-6">
                   <label for="name">Your Name</label>
-                  <input type="text" name="name" class="form-control" id="name" required>
+                  <input type="text" name="name" class="form-control" id="name" >
                 </div>
                 <div class="form-group col-md-6">
                   <label for="name">Your Email</label>
-                  <input type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" class="form-control" name="email" id="email" required>
+                  <input type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" class="form-control" name="email" id="email" >
                 </div>
               </div>
               <div class="form-group">
                 <label for="name">Subject</label>
-                <input type="text" maxlength="50" class="form-control" name="subject" id="subject" required>
+                <input type="text" maxlength="50" class="form-control" name="subject" id="subject" >
               </div>
               <div class="form-group">
                 <label for="name">Message</label>
-                <textarea class="form-control" minlength="20" name="message" rows="10" id="message" required></textarea>
+                <textarea class="form-control" name="message" rows="10" id="message" ></textarea>
               </div>
               <div class="my-3">
                 <div class="loading">Loading</div>
-                <div class="error-message"></div>
+                <div class="error-message" ></div>
                 <div class="sent-message">Your message has been sent. Thank you!</div>
               </div>
               <div class="text-center"><button type="submit">Send Message</button></div>
             </form>
           </div>
+          <div id="error"></div>
 
         </div>
 
@@ -604,26 +605,6 @@
   <script src="assets/js/main.js"></script>
 
 
-  
-  <script>
-    $("#submit-form").submit((e)=>{
-        e.preventDefault()
-        $.ajax({
-            url:"https://script.google.com/macros/s/AKfycbxfhF6c5Xs21m-9oerkc3Mu9DJW27sF616_9SDn2tf5Jh6zaz3YWnumPfMDDaw_CtC5nQ/exec",
-            data:$("#submit-form").serialize(),
-            method:"post",
-            success:function (response){
-                alert("Form submitted successfully")
-                window.location.reload()
-                //window.location.href="https://google.com"
-            },
-            error:function (err){
-                alert("Something Error")
-
-            }
-        })
-    })
-</script>
 
 </body>
 
